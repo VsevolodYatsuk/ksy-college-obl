@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  client:
+    build:
+      context: ./api-college.client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./api-college.client:/app
+    depends_on:
+      - server
+
+  server:
+    build:
+      context: .
+      dockerfile: api-college.server/Dockerfile
+    ports:
+      - "5065:80"
+    volumes:
+      - ./api-college.server:/app
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: college_ksy
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: test_pass
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:

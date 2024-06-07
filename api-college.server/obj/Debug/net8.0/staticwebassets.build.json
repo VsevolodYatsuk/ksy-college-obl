@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "A59ij5bHj3ltXppOK3mRhSxtusoqrv4fM6xlaafEbY4=",
+  "Source": "api-college.server",
+  "BasePath": "_content/api-college.server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
